@@ -16,5 +16,7 @@ seed = 7
 kfold = KFold(n_splits=num_folds, random_state=seed)
 model = LogisticRegression()
 results = cross_val_score(model, X, Y, cv=kfold, scoring='neg_log_loss')
-
 print("LogLoss: %.3f (%.3f)") % (results.mean(), results.std())
+
+results2 = cross_val_score(model, X, Y, cv=kfold, scoring='roc_auc')
+print("ROC: %.3f (%.3f)") % (results2.mean(), results2.std())
