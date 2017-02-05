@@ -1,7 +1,8 @@
-# evaluating the algorithm using confusion_matrix
+# evaluating the algorithm using confusion_matrix & classification report
 from pandas import read_csv
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
 from sklearn.linear_model import LogisticRegression
 
 filename = '../datasets/pima-indians-diabetes.csv'
@@ -22,3 +23,6 @@ model.fit(X_train, Y_train)
 predicted = model.predict(X_test)
 matrix = confusion_matrix(Y_test, predicted)
 print(matrix)
+
+classification_report = classification_report(Y_test, predicted)
+print(classification_report)
