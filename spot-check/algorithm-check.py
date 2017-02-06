@@ -10,7 +10,7 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 # load dataset
-filename = 'pima-indians-diabetes.data.csv'
+filename = '../datasets/pima-indians-diabetes.data.csv'
 names = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class']
 dataframe = read_csv(filename, names=names)
 array = dataframe.values
