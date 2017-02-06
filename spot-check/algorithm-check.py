@@ -10,7 +10,7 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 # load dataset
-filename = '../datasets/pima-indians-diabetes.data.csv'
+filename = '../datasets/pima-indians-diabetes.csv'
 names = ['preg', 'plas', 'pres', 'skin', 'test', 'mass', 'pedi', 'age', 'class']
 dataframe = read_csv(filename, names=names)
 array = dataframe.values
@@ -38,7 +38,7 @@ for name, model in models:
     print(msg)
 
 fig = pyplot.figure()
-fig.subtitle('Algorithm comparison')
+fig.suptitle('Algorithm comparison')
 ax = fig.add_subplot(111)
 pyplot.boxplot(results)
 ax.set_xticklabels(names)
