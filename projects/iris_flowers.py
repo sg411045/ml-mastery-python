@@ -19,10 +19,14 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
+from bokeh.charts import Histogram, output_file, show
+
 # b) Load dataset
-filename = "../datasets/iris.csv"
+filename = "../datasets/iris_with_headers.csv"
 names = ["Sepal-Length", "Sepal-Width", "Petal-Length", "Petal-Width", "Class"]
 dataset = read_csv(filename, header=0, names=names)
+
+
 
 # 2. Summarize Data
 # a) Descriptive statistics
@@ -30,6 +34,7 @@ print(dataset.shape)
 print(dataset.groupby('Class').size())
 print(dataset.head(60))
 print(dataset.describe())
+print (dataset.hist())
 
 # b) Data visualizations
 # dataset.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
@@ -38,6 +43,11 @@ print(dataset.describe())
 # historgram
 # dataset.hist()
 # pyplot.show()
+
+#
+hist = Histogram(dataset, values='Class', color='Class', title="Distribution by Class", legend='top_right')
+output_file("histogram_single.html", title="histogram_single.py example")
+show(hist)
 
 # scatter_matrix
 # scatter_matrix(dataset)
