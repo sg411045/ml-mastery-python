@@ -19,7 +19,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import classification_report
 from sklearn.metrics import confusion_matrix
 
-from bokeh.charts import Histogram, output_file, show
+from bokeh.charts import Histogram, Scatter, output_file, show
 
 # b) Load dataset
 filename = "../datasets/iris_with_headers.csv"
@@ -37,3 +37,10 @@ print(dataset.describe())
 hist = Histogram(dataset, values='Class', color='Class', title="Distribution by Class", legend='top_right')
 output_file("histogram_single.html", title="histogram_single.py example")
 show(hist)
+
+scatter = Scatter(dataset, x='Petal-Length', y='Petal-Width', color='Class', marker='Class',
+                  title='Iris Dataset Color and Marker by Species',
+                  legend=True)
+output_file("iris_simple_scatter.html", title="iris_simple.py example")
+
+show(scatter)
